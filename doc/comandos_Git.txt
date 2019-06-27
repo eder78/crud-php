@@ -1,0 +1,221 @@
+
+--- Download ---
+
+https://git-scm.com/download
+
+
+--- Config --- 
+
+git config --global user.name "eder78"
+
+git config --global user.email "eder.luis.britto.garcia@gmail.com"
+
+
+--- Inicializando o repositório ---
+
+cd /c/xampp/htdocs/crud-php-eder
+
+git init
+
+
+--- .gitignore ----
+
+1) Criar um arquivo sem nome e com a extensão ".gitignore"
+
+2) No corpo adicionar as pastas e arquivos que não devem ser commitados.
+
+.gitignore
+
+venv/
+
+
+--- Status ---
+
+git status
+
+
+--- Add ---
+
+git add .
+
+
+--- Commit ---
+
+git commit -m "Commit inicial"
+
+git commit -a -m "Commit pulando o add" 
+
+
+--- Comparação ---
+
+git diff
+
+git diff --staged
+
+
+--- Log ---
+
+git log
+
+git log --pretty=oneline
+
+* Serve para mostrar o código e a mensagem de cada commit.
+
+--- git log mais detalhado ---
+
+git log -p
+
+* No final da paginação apertar a letra "q" para sair no (END)
+
+git log -p -1
+
+* Mostra somente o último commit 
+
+
+gitk  # Mostra o visualizador de relatórios do git
+
+
+
+--- Editando um commit ---
+
+git add .
+
+git commit --amend -m "Novas funcionalidades (edicao)"
+
+git log --pretty=oneline
+
+
+--- Remover arquivo da stage area ---
+
+git reset HEAD teste.txt
+
+
+--- Desfazer alteração em arquivo --- 
+
+git checkout -- teste.txt
+
+
+--- Criando tag no HEAD ---
+
+git tag 
+
+* exibe as tags existentes
+
+git tag -a v1.0 -m "Versao 1.0"
+
+* cria a tag nomeada de v1.0 no HEAD.
+
+
+--- Criando tag em outro commit  ---
+
+git tag -a v0.0 4a8822564446b43f2ca3675a2f9f17df5c338d72 -m "Versao 0.0"
+
+* depois do nome da tag basta fornecer o código do commit desejado.
+
+ 
+
+--- Exibindo mais detalhes sobre um tag ---
+
+git show v1.0
+
+* Exibe tudo sobre a tag: Autor, alterações, etc.
+
+
+--- Alternando entre as versões diferentes de tag --- 
+
+git checkout v0.0
+
+* Altera todo o repositório para a versão 0.0
+
+git checkout v1.0
+
+* Altera todo o repositório para a versão 1.0
+
+:)
+
+
+--- Aterando para o branch master ---
+
+git checkout master
+
+
+--- Removendo uma tag ---
+
+git tag 
+
+* exibe as tags exitentes
+
+git tag -d v0.0
+
+* remove a tag v0.0
+
+
+
+
+--== BRANCH (RAMIFICAÇÃO) ==--
+
+* Um commit feito dentro de uma ramificação não afetará outras ramificações. 
+		
+
+--- Criando um ambiente de teste (homologação) ---
+
+git branch teste
+
+* Cria o banch chamado teste
+
+git checkout teste
+
+* altera para o branch teste
+
+
+--- Cria e altera para o branch teste ---
+
+git checkout -b teste
+
+
+--- Exibir todos os branchs ---
+
+git branch
+
+
+--- Atualizando o MASTER --- 
+
+git checkout master
+
+* alterar para o branch master 
+
+git merge teste
+
+* juntas as alterações do branch teste n branch master
+
+
+--- Deletar Branch --- 
+
+git branch -d teste
+
+* remove o branch teste
+
+git branch 
+
+* exibe todos os branchs
+
+
+--- Deletar Repositório Local ---
+
+$ rm -rf .git
+
+Or to delete .gitignore and .gitmodules if any (via @aragaer):
+
+$ rm -rf .git*
+
+Then from the same ex-repository folder, to see if hidden folder .git is still there:
+
+$ ls -lah
+
+https://stackoverflow.com/questions/1514054/how-do-i-delete-a-local-repository-in-git
+
+---
+
+
+
+

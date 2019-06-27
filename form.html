@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    
+    <head>
+        
+        <meta charset="utf-8">
+        
+        <link rel="stylesheet" type="text/css" href="style/css/bootstrap.min.css">
+        
+        <title>CRUD | PHP</title>
+        
+    </head>
+    
+    
+    <body>
+        
+        <div class="container">
+            
+            <div class="row justify-content-center mt-5">        
+                <h3>Adicionar Contato</h3>                
+            </div>
+            
+            <div class="row justify-content-center mt-3">
+                
+                <form action="insert.php" method="post" onsubmit="return validateForm()">
+                    
+                                        
+                    <div class="form-group">
+                        <label>Empresa</label>
+                        <input class="form-control" name="empresa" type="text" placeholder="Empresa" required/> 
+                    </div>
+                    
+                    
+                    <div class="row">                        
+                        <div class="col">                            
+                            <div class="form-group">
+                                <label>Contato</label>
+                                <input class="form-control" name="contato" type="text" placeholder="Contato" required/>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group"> 
+                                <label>Cargo</label>
+                                <input class="form-control" name="cargo" type="text" placeholder="Cargo" required/>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="row">                        
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Telefone</label>
+                                <input class="form-control" name="telefone" type="text" placeholder="Telefone" required/>
+                            </div>
+                        </div>
+                        
+                        <div class="col">                    
+                            <div class="form-group">
+                                <label>Celular</label>
+                                <input class="form-control" name="celular" type="text" placeholder="Celular" required/>
+                            </div>
+                        </div>
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <label>Site</label>
+                        <input class="form-control" name="site" type="text" placeholder="Site" required/>
+                    </div>    
+
+                    <div class="form-group"> 
+                        <label>E-mail</label>
+                        <input class="form-control" name="email" type="text" placeholder="E-mail" required/>
+                    </div>    
+                    
+                    
+                    <div class="row"> 
+                        
+                        <div class="col">
+                            <div class="form-group">
+                                <label>Endereço</label>
+                                <input class="form-control" name="endereco" type="text" placeholder="Endereço" required/>                                
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="col">                                        
+                            <div class="form-group"> 
+                                <label>Bairro</label>
+                                <input class="form-control" name="bairro" type="text" placeholder="Bairro" required/>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group"> 
+                                <label>UF</label>
+                                <input class="form-control" size="2" name="uf" type="text" placeholder="UF" maxlength="2" size="2" required/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="row">                        
+                        <div class="col">                    
+                            <div class="form-group"> 
+                                <label>Cidade</label>
+                                <input class="form-control" name="cidade" type="text" placeholder="Cidade" required/>
+                            </div>                        
+                        </div>                        
+                        <div class="col">                            
+                            <div class="form-group"> 
+                                <label>CEP</label>
+                                <input class="form-control" name="cep" type="text" placeholder="CEP" required/>
+                            </div>                                 
+                        </div>                    
+                    </div>    
+                    
+                        <button class="btn btn-dark mt-3 mb-3" type="submit">Adicionar</button>                        
+                        
+                        <a class="btn text-dark mt-3 mb-3 ml-2" href="index.php">Cancelar</a>
+                
+                </form>
+            
+            </div>
+        
+        </div>
+    
+    </body>
+
+</html>
+
+

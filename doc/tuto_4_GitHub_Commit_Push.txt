@@ -1,0 +1,24 @@
+
+--- Atualizando o repositório GitHub na núvem ---
+
+1) No GitBash digite:
+
+cd /c/xampp/htdocs/crud-php
+
+
+2) No "Windows", copiar os arquivos desejados para: 
+
+/c/xampp/htdocs/crud-php
+
+
+3) No GitBash digite:
+
+
+
+
+
+
+
+Referência:
+
+https://youtu.be/1IfAFYQD8u0?t=517
