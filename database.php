@@ -2,10 +2,10 @@
 
     class Database {
 
-        private static $database = 'agenda_contatos';
+        private static $database = 'nome_do_banco';
         private static $host = 'localhost';
-        private static $user = 'eder';
-        private static $password = '6bMclDkitV5rwHF2';
+        private static $user = 'seu_usuario';
+        private static $password = 'sua_senha';
 
         private static $statement = null;
 
