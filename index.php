@@ -1,3 +1,48 @@
+<?php
+
+/**
+ * A simple, clean and secure PHP Login Script / MINIMAL VERSION
+ *
+ * Uses PHP SESSIONS, modern password-hashing and salting and gives the basic functions a proper login system needs.
+ *
+ * @author Panique
+ * @link https://github.com/panique/php-login-minimal/
+ * @license http://opensource.org/licenses/MIT MIT License
+ */
+
+// checking for minimum PHP version
+if (version_compare(PHP_VERSION, '5.3.7', '<')) {
+    exit("Sorry, Simple PHP Login does not run on a PHP version smaller than 5.3.7 !");
+} else if (version_compare(PHP_VERSION, '5.5.0', '<')) {
+    // if you are using PHP 5.3 or PHP 5.4 you have to include the password_api_compatibility_library.php
+    // (this library adds the PHP 5.5 password hashing functions to older versions of PHP)
+    require_once("libraries/password_compatibility_library.php");
+}
+
+// include the configs / constants for the database connection
+require_once("config/db.php");
+
+// load the login class
+require_once("classes/Login.php");
+
+// create a login object. when this object is created, it will do all login/logout stuff automatically
+// so this single line handles the entire login process. in consequence, you can simply ...
+$login = new Login();
+
+// ... ask if we are logged in here:
+if ($login->isUserLoggedIn() == true) {
+    // the user is logged in. you can do whatever you want here.
+    // for demonstration purposes, we simply show the "you are logged in" view.
+    include("views/logged_in.php");
+
+} else {
+    // the user is not logged in. you can do whatever you want here.
+    // for demonstration purposes, we simply show the "you are not logged in" view.
+    include("views/not_logged_in.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,71 +51,14 @@
         <meta charset="utf-8">
 
         <link rel="stylesheet" type="text/css" href="style/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="style/css/style.css">
+        <link rel="stylesheet" type="text/css" href="style/css/style.css">        
 
         <title>CRUD | PHP</title>
+        
+        <link rel="shortcut icon" href="favicon.ico">
 
     </head>
-
-    <body>
-        
-        <div class="container">                
-
-            <div class="row justify-content-center mt-4">    
-                <h2>CRUD | PHP</h2>
-            </div>
-            
-            <div class="row justify-content-center mt-2">
-                <h4>Contatos Profissionais</h4>
-            </div>            
-            
-            
-            <div class="row justify-content-center">
-                
-                <a class="btn text-dark my-3" href="form.html">Novo Contato</a>
-
-                <table class="table table-striped table-bordered">
-                    <thead class="thead-light text-left">                    
-                        <tr>            
-                            <th>Empresa</th>
-                            <th>Contato</th>
-                            <th>Telefone</th>
-                            <th>Celular</th>            
-                            <th>E-mail</th>                            
-                            <th></th>                        
-                        </tr>
-                    </thead>    
-
-                    <?php
-                    include 'database.php';
-                    $pdo = Database::connect();
-                    $sql = 'SELECT * FROM contatos ORDER BY id DESC';
-                    foreach ($pdo -> query($sql) as $row) {
-                        echo '<tr>';            
-                        echo '<td>'. $row['empresa'] . '</td>';
-                        echo '<td>'. $row['contato'] . '</td>';            
-                        echo '<td>'. $row['telefone'] . '</td>';
-                        echo '<td>'. $row['celular'] . '</td>';
-                        echo '<td>'. $row['email'] . '</td>';                        
-                                                
-                        echo '<td>';
-                        echo '&nbsp;<a class="text-dark" href="view.php?id='.$row['id'].'">Detalhes</a>&nbsp;&nbsp;';
-                        echo '&nbsp;<a class="text-dark" href="update.php?id='.$row['id'].'">Editar</a>&nbsp;&nbsp;';
-                        echo '&nbsp;<a class="text-dark" href="delete.php?id='.$row['id'].'">Deletar</a>&nbsp;';
-                        echo '</td>';
-                        echo '</tr>';
-                    }
-
-                    Database::disconnect();
-
-                    ?>
-
-                </table>
-                
-            </div>
-            
-        </div>
-
-    </body>
     
+    <body></body>
+
 </html>

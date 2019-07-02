@@ -1,7 +1,10 @@
 <?php
 
-    require 'database.php';
+    require 'config/db.php';
 
+    session_start();
+
+    $user_id = $_SESSION['user_id'];
     $empresa = $_POST['empresa'];
     $contato = $_POST['contato'];
     $cargo = $_POST['cargo'];
@@ -15,13 +18,13 @@
     $uf = $_POST['uf'];
     $cep = $_POST['cep'];
 
-    $pdo = Database::connect();
+    $pdo = connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO contatos (empresa, contato, cargo, telefone, celular, site, email, endereco, bairro, cidade, uf, cep) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+    $sql = "INSERT INTO contatos (user_id, empresa, contato, cargo, telefone, celular, site, email, endereco, bairro, cidade, uf, cep) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
     $q = $pdo->prepare($sql);
-    $q->execute(array($empresa,$contato,$cargo,$telefone,$celular,$site,$email,$endereco,$bairro,$cidade,$uf,$cep));
+    $q->execute(array($user_id,$empresa,$contato,$cargo,$telefone,$celular,$site,$email,$endereco,$bairro,$cidade,$uf,$cep));
 
-    Database::disconnect();
+    disconnect();
 
     header("Location: index.php");
 

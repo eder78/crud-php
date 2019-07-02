@@ -1,6 +1,6 @@
 # CRUD | PHP
 ### Contatos Profissionais
-Este projeto colaborativo é uma agenda para armazenar e gerenciar contatos profissionais.
+Este projeto colaborativo é uma agenda com login para armazenar e gerenciar contatos profissionais.
 
 Esta é uma ótima opção para treinar PHP, MySQL, HTML, Bootstrap e CSS.
 
@@ -8,10 +8,22 @@ Esta é uma ótima opção para treinar PHP, MySQL, HTML, Bootstrap e CSS.
 
 ### Configuração
 Para começar a utilizar:
-1) Editar o arquivo `database.php`
-2) Importar ou executar o arquivo `contatos.sql` no `phpMyAdmin`
+Importar os arquivos da pasta `_installation` no `phpMyAdmin`:
+1) `create-database.sql`
+2) `create-users-table.sql`
+3) `create-contatos-table.sql`
+4) Editar o arquivo `config/db.php`
+
+### Contribuição
+Você pode contribuir de várias formas.
+Seguem algumas sugestões:
+1) Criando novas funcionalidades
+2) Melhorando o código
+3) Documentando
+4) Traduzindo para um idioma diferente
+5) Criando logotipos 
 
 ### Suporte
 Qualquer dificuldade, sugestão ou "pull requests" entre em contato!
 
-<a href="http://www.edergarciaonline.dx.am/" target="_blank">http://www.edergarciaonline.dx.am/</a> 
+<a href="http://www.edergarciaonline.dx.am/" target="_blank">http://www.edergarciaonline.dx.am/</a>

@@ -1,6 +1,6 @@
 <?php
 
-	require 'database.php';
+	require_once("config/db.php");
 
 	$id = null;
 
@@ -27,19 +27,19 @@
         $uf = $_POST['uf'];
         $cep = $_POST['cep'];
         
-        $pdo = Database::connect();
+        $pdo = connect();
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $sql = "UPDATE contatos  set empresa=?, contato=?, cargo=?, telefone=?, celular=?, site=?, email=?, endereco=?, bairro=?, cidade=?, uf=?, cep=? WHERE id=?";
                                     
         $q = $pdo->prepare($sql);
         $q->execute(array($empresa,$contato,$cargo,$telefone,$celular,$site,$email,$endereco,$bairro,$cidade,$uf,$cep,$id));
-        Database::disconnect();
+        disconnect();
         header("Location: index.php");       
     }
 
     else {
         
-        $pdo = Database::connect();
+        $pdo = connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$sql = "SELECT * FROM contatos where id = ?";
 		$q = $pdo->prepare($sql);
@@ -59,7 +59,7 @@
         $uf = $data['uf'];
         $cep = $data['cep'];
         
-		Database::disconnect();
+		disconnect();
 	}
 ?>
 
@@ -75,6 +75,8 @@
         <link rel="stylesheet" type="text/css" href="style/css/bootstrap.min.css">
         
         <title>CRUD | PHP</title>
+        
+        <link rel="shortcut icon" href="favicon.ico">
         
     </head>
     

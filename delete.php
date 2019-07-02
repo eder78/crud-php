@@ -1,6 +1,6 @@
 <?php
 
-require 'database.php';
+require_once("config/db.php");
 
 $id = 0;
 
@@ -12,12 +12,12 @@ if(!empty($_POST)) {
     
     $id = $_POST['id'];
 
-    $pdo = Database::connect();
+    $pdo = connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "DELETE FROM contatos where id = ?";
     $q = $pdo->prepare($sql);
     $q->execute(array($id));
-    Database::disconnect();
+    disconnect();
     header("Location: index.php");
 }
 ?>
@@ -33,6 +33,8 @@ if(!empty($_POST)) {
         <link rel="stylesheet" type="text/css" href="style/css/bootstrap.min.css">
         
         <title>CRUD | PHP</title>
+        
+        <link rel="shortcut icon" href="favicon.ico">
     
     </head>
     

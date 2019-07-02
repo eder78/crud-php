@@ -1,6 +1,6 @@
 <?php
 
-require 'database.php';
+require_once("config/db.php");
 $id = null;
 
 if(!empty($_GET['id'])) {
@@ -12,13 +12,13 @@ if(null==$id) {
 }
 
 else {    
-    $pdo = Database::connect();
+    $pdo = connect();
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "SELECT * FROM contatos where id = ?";
     $q = $pdo->prepare($sql);
     $q->execute(array($id));
     $data = $q->fetch(PDO::FETCH_ASSOC);
-    Database::disconnect();
+    disconnect();
 }
 
 ?>
@@ -34,6 +34,8 @@ else {
         <link rel="stylesheet" type="text/css" href="style/css/bootstrap.min.css">
         
         <title>CRUD | PHP</title>
+        
+        <link rel="shortcut icon" href="favicon.ico">
     
     </head>
     

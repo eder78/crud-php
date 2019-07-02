@@ -1,5 +1,6 @@
 CREATE TABLE `contatos` (
   `id` int(7) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  `user_id`  varchar(7) COLLATE utf8_unicode_ci NOT NULL,
   `empresa` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `contato` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `cargo` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
